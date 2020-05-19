@@ -1,18 +1,22 @@
 {
   "name": "dataisland",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "data island utils",
-  "main": "index.js",
+  "module": "index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test",
+    "build": "rollup index.js -d web_modules ; rollup --config"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/spux/dataisland.git"
   },
-  "author": "Melvin Carvalho <melvincarvalho.com> (https://melvincarvalho.com/#me)",
+  "keywords": ["data island"],
+  "author": "Melvin Carvalho <melvincarvalho@gmail.com> (https://melvincarvalho.com/#me)",
   "bugs": {
     "url": "https://github.com/spux/dataisland/issues"
   },
-  "homepage": "https://github.com/spux/dataisland#readme"
+  "homepage": "https://github.com/spux/dataisland#readme",
+  "pre-commit": ["standard"]
 }
