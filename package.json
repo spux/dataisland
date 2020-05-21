@@ -1,6 +1,6 @@
 {
   "name": "dataisland",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "data island utils",
   "module": "index.js",
   "main": "dist/index.js",
@@ -12,11 +12,15 @@
     "type": "git",
     "url": "git+https://github.com/spux/dataisland.git"
   },
-  "keywords": ["data island"],
+  "keywords": [
+    "data island"
+  ],
   "author": "Melvin Carvalho <melvincarvalho@gmail.com> (https://melvincarvalho.com/#me)",
   "bugs": {
     "url": "https://github.com/spux/dataisland/issues"
   },
   "homepage": "https://github.com/spux/dataisland#readme",
-  "pre-commit": ["standard"]
+  "pre-commit": [
+    "standard"
+  ]
 }
