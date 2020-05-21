@@ -2,6 +2,7 @@ let updater = {
   set: (obj, prop, value) => {
     obj[prop] = value
     updateIsland(prop, value)
+    return true
   }
 }
 
