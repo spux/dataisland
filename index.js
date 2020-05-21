@@ -33,19 +33,3 @@ function saveIsland (id) {
     }
   )
 })()
-
-export function dataIsland () {
-  return JSON.parse(document.querySelector('[type="application/ld+json"]').text)
-}
-
-export function dataIslands () {
-  return new Proxy(
-    Array.from(document.querySelectorAll('[type="application/ld+json"]'))
-      .map(island => [island.id, JSON.parse(island.text)])
-      .reduce((obj, item) => {
-        obj[item[0]] = item[1]
-        return obj
-      }, {}),
-    updater
-  )
-}
