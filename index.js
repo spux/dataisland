@@ -1,20 +1,3 @@
-function saveIsland (id) {
-  var island = document.getElementById(id)
-  fetch(island.src, {
-    method: 'PUT',
-    headers: {
-      'Content-Type': island.type
-    },
-    body: island.text
-  })
-    .then(data => {
-      console.log('Success:', data)
-    })
-    .catch(error => {
-      console.error('Error:', error)
-    })
-}
-
 ;(() => {
   globalThis.di = new Proxy(
     Array.from(document.querySelectorAll('[type="application/ld+json"]'))
@@ -26,8 +9,23 @@ function saveIsland (id) {
     {
       set: (obj, prop, value) => {
         obj[prop] = value
-        document.getElementById(prop).text = JSON.stringify(value, null, 2)
-        saveIsland(prop)
+        var island = document.getElementById(prop)
+        island.text = JSON.stringify(value, null, 2)
+        if (island.src)
+          fetch(island.src, {
+            method: 'PUT',
+            body: island.text,
+            headers: {
+              'Content-Type': island.type
+            }
+          }).then(function (response) {
+            island.dispatchEvent(
+              new CustomEvent(response.ok ? 'di-save' : 'di-error', {
+                bubbles: true,
+                detail: response
+              })
+            )
+          })
         return true
       }
     }
