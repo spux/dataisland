@@ -1,6 +1,6 @@
 {
   "name": "dataisland",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "data island utils",
   "module": "index.js",
   "main": "dist/index.js",
