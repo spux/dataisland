@@ -1,6 +1,10 @@
 ;(() => {
   globalThis.di = new Proxy(
-    Array.from(document.querySelectorAll('[type="application/ld+json"]'))
+    Array.from(
+      document.querySelectorAll(
+        '[type="application/ld+json"], [type="application/json"]'
+      )
+    )
       .map(island => [island.id, JSON.parse(island.text)])
       .reduce((obj, item) => {
         obj[item[0]] = item[1]
