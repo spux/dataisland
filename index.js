@@ -3,7 +3,7 @@ function saveIsland (id) {
   fetch(island.src, {
     method: 'PUT',
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': island.type
     },
     body: island.text
   })
