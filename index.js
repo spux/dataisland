@@ -1,4 +1,6 @@
-export default dataIslands
+function dataIsland () {
+  return JSON.parse(document.querySelector('[type="application/ld+json"]').text)
+}
 
 function dataIslands () {
   return Array.from(document.querySelectorAll('[type="application/ld+json"]'))
