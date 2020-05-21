@@ -1,10 +1,22 @@
 export default dataIslands
 
-/**
- * @returns {Array} array of data islands
- */
 function dataIslands () {
-  return Array.from(
-    document.querySelectorAll('[type="application/ld+json"]')
-  ).map(island => JSON.parse(island.innerText))
+  return Array.from(document.querySelectorAll('[type="application/ld+json"]'))
+    .map(island => [island.id, JSON.parse(island.text)])
+    .reduce((obj, item) => {
+      obj[item[0]] = item[1]
+      return obj
+    }, {})
+}
+
+function updateIsland (id, data) {
+  document.getElementByID(id).text = JSON.stringify(data, null, 2)
+  saveIsland(id)
+}
+
+function saveIsland (id) {
+  var island = document.getElementByID(id)
+  var url = data.src
+  var thejson = data.text
+  // PUT thejson to the src
 }
